@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Proyecto: Crear o Modificar</title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"/>
+
+    </head>
+    
+    <body class="container">
+
+        <h1 class="text-center bg-primary text-white">CREAR / MODIFICAR</h1>
+
+        <form th:action="@{/proyecto/guardar}" method="Post" th:object="${proyecto}">
+            <input type="hidden" id="id_proyecto" th:field="*{id_proyecto}"/>
+
+            <div class="mb-3">
+                <label for="name_proyecto">Nombre del Proyecto </label>
+                <input type="text" id="name_proyecto" th:field="*{name_proyecto}" placeholder="Project's Name" class=form-control/>
+                <span th:if="${#fields.hasErrors('name_proyecto')}" th:errors="*{name_proyecto}">Error en Nombre del Proyecto</span>
+            </div>
+            
+            <div <div class="mb-3">
+                <label for="estado">Estado </label>
+                <input type="text" id="estado" th:field="*{estado}" placeholder="Estado" class=form-control/>
+                <span th:if="${#fields.hasErrors('estado')}" th:errors="*{estado}">Error en Estado</span>       
+            </div>
+            
+            <div <div class="mb-3">
+                <label for="descrip_proyecto">Descripción </label>
+                <input type="text" id="descrip_proyecto" th:field="*{descrip_proyecto}" placeholder="Description" class=form-control/>
+                <span th:if="${#fields.hasErrors('descrip_proyecto')}" th:errors="*{descrip_proyecto}">Error en Descripción</span>   
+            </div>
+            
+            <div <div class="mb-3">
+                <label for="link_proyecto">Link </label>
+                <input type="text" id="link_proyecto" th:field="*{link_proyecto}" placeholder="Link" class=form-control/>
+                <span th:if="${#fields.hasErrors('link_proyecto')}" th:errors="*{link_proyecto}">Error en el Link</span>
+            </div>
+            
+            <div class="mb-3">
+                <label for="date_proyecto">Fecha </label>
+                <input id="date_proyecto" type="date" th:field="*{date_proyecto}" class=form-control/>
+                <span th:if="${#fields.hasErrors('date_proyecto')}" th:errors="*{date_proyecto}">Error en la Fecha</span>
+            </div>
+
+            <div <div class="mb-3">
+                <label for="link_proyecto">Imagen </label>
+                <input type="text" id="imagen_proyecto" name="imagen_proyecto" th:field="*{imagen_proyecto}" placeholder="URL Imagen" class=form-control/>
+            </div>
+
+
+                
+                
+                
+            <div class="text-center">
+                <input type="submit" class="btn btn-success" name="guardar" value="guardar"/>
+                <a th:href="@{/proyecto}" class="btn btn-info">Volver</a>
+            </div>
+            
+        </form>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+
+    </body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Educaciones</title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"/>
+
+    </head>
+
+    <body class="container">
+        <div class="container">
+            <h1 class="text-center bg-primary text-white">EDUCACIONES</h1>
+
+            <div th:if="${educacion != null and !educacion.empty}">
+                <table class="table table-hover">
+                    <thead class="table-secondary">
+                        <tr>
+                            <th>Carrera</th>
+                            <th>Institución</th>
+                            <th>Descripción</th>
+                            <th>Título</th>
+                            <th>Estado</th>
+                            <th>Fecha</th>
+                            <th>Editar</th>
+                            <th>Eliminar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr th:each="i : ${educacion}">
+                            <td th:text="${i.carrera}">ID</td>
+                            <td th:text="${i.institucion}">ID</td>
+                            <td th:text="${i.descrip_educacion}">ID</td>
+                            <td th:text="${i.titulo}">ID</td>
+                            <td th:text="${i.estado}">ID</td>
+                            <td th:text="${#temporals.format(i.date_educacion, 'dd/MM/YYYY')}"></td>
+
+                            <td><a th:href="@{/educacion/editar/} + ${i.id_educacion}" class="btn btn-warning" th:text="Editar"></a> </td>
+                            <td><a th:href="@{/educacion/eliminar/} + ${i.id_educacion}" class="btn btn-danger" th:text="Eliminar"></a> </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="text-center">
+                <a th:href="@{/educacion/agregar}" class="btn btn-success">Crear</a>
+                <a th:href="@{/}" class="btn btn-info">Volver</a>
+            </div>
+            <div th:if="${educacion == null or educacion.empty}" class="alert alert-danger" role="alert">
+                La lista de Educacion está vacía
+            </div>
+
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+
+    </body>
+</html>
